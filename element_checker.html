@@ -1,0 +1,176 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>skills test</title>
+        <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+        <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url("https://th.bing.com/th/id/OIP.j9t7ezYnIF74EpT0qbryIAHaEM?r=0&o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3") center / cover no-repeat fixed;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            padding-top: 80px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            width: 320px;
+            height: fit-content;
+            text-align: center;
+        }
+        h1 {
+            font-size: 26px;
+            margin: 0 0 20px;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 8px;
+            box-sizing: border-box;
+            margin-bottom: 12px;
+            outline: none;
+        }
+        input[type="text"]:focus {
+            border-color: #fbbf24;
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(90deg, #fbbf24, #f97316);
+            color: #7f1d1d;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            opacity: 0.85;
+        }
+        #element {
+        margin-top: 20px;
+        padding: 18px;
+        background: rgba(255, 255, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: 14px;
+        color: #7f1d1d;
+    }
+    tr:nth-child(1) td {
+        background: linear-gradient(90deg, #fca5a5, #fda4af);
+    }
+    tr:nth-child(2) td {
+        background: linear-gradient(90deg, #fdba74, #fde68a);
+    }
+    td {
+        padding: 10px 12px;
+        font-weight: bold;
+        color: #7f1d1d;
+    }
+        .symbol {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 16px;
+            line-height: 80px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #7f1d1d;
+            background: linear-gradient(135deg, #fde68a, #fbbf24);
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.7);
+        }
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+        td {
+            padding: 10px 12px;
+            font-weight: bold;
+            color: white;
+        }
+        td:first-child {
+            text-align: left;
+            border-radius: 8px 0 0 8px;
+        }
+        td:last-child {
+            text-align: right;
+            font-size: 18px;
+            border-radius: 0 8px 8px 0;
+        }
+        tr:nth-child(1) td {
+            background: linear-gradient(90deg, #dc2626, #f43f5e);
+        }
+        tr:nth-child(2) td {
+            background: linear-gradient(90deg, #ea580c, #f59e0b);
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        nav a:hover {
+            opacity: 0.85;
+        }
+        nav a.active {
+            background: linear-gradient(90deg, #fbbf24, #f97316);
+            color: #7f1d1d;
+            border-color: transparent;
+            text-shadow: none;
+        }
+    </style>
+    </head>
+    <body>
+        <nav>
+    <a href="index.html">Homepage</a>
+    <a href="element_checker.html" class="active">Element Checker</a>
+    <a href="club_members.html">School Club Members</a>
+    <a href="meet_the_creator.html">Meet the Creator</a>
+</nav>
+        <div class="card">
+            <h1 style="color: red;">Non Element</h1>
+            <form>
+                <input type="text" id="non_elements" placeholder="Enter an element symbol">
+                <input type="button" py-click="element_checker" value="Search">
+            </form>
+            <div id="element"></div>
+        </div>
+
+        <script type="py" src="main2.py"></script>
+    </body>
+    </html>
